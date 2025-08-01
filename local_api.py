@@ -1,13 +1,12 @@
-# local_api.py
 import requests
 
-# Test the GET request
-get_response = requests.get("http://127.0.0.1:8000/")
-print(f"Status Code: {get_response.status_code}")
-print(f"Result: {get_response.json()['message']}")
+# GET
+r = requests.get("https://deploying-a-scalable-ml-pipeline-with.onrender.com")
+print(f"Status Code: {r.status_code}")
+print(f"Result: {r.json()}")
 
-# Test the POST request
-data = {
+# POST
+sample = {
     "age": 37,
     "workclass": "Private",
     "fnlgt": 178356,
@@ -23,7 +22,6 @@ data = {
     "hours-per-week": 40,
     "native-country": "United-States"
 }
-
-post_response = requests.post("http://127.0.0.1:8000/predict/", json=data)
-print(f"Status Code: {post_response.status_code}")
-print(f"Result: {post_response.json()['result']}")
+r = requests.post("https://deploying-a-scalable-ml-pipeline-with.onrender.com/predict/", json=sample)
+print(f"Status Code: {r.status_code}")
+print(f"Result: {r.json()}")
