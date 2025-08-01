@@ -1,17 +1,12 @@
-import json
-
+# local_api.py
 import requests
 
-# TODO: send a GET using the URL http://127.0.0.1:8000
-r = None # Your code here
+# Test the GET request
+get_response = requests.get("http://127.0.0.1:8000/")
+print(f"Status Code: {get_response.status_code}")
+print(f"Result: {get_response.json()['message']}")
 
-# TODO: print the status code
-# print()
-# TODO: print the welcome message
-# print()
-
-
-
+# Test the POST request
 data = {
     "age": 37,
     "workclass": "Private",
@@ -26,13 +21,9 @@ data = {
     "capital-gain": 0,
     "capital-loss": 0,
     "hours-per-week": 40,
-    "native-country": "United-States",
+    "native-country": "United-States"
 }
 
-# TODO: send a POST using the data above
-r = None # Your code here
-
-# TODO: print the status code
-# print()
-# TODO: print the result
-# print()
+post_response = requests.post("http://127.0.0.1:8000/predict/", json=data)
+print(f"Status Code: {post_response.status_code}")
+print(f"Result: {post_response.json()['result']}")
